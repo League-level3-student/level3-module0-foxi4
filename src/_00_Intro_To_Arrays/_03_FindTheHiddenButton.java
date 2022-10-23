@@ -10,15 +10,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /* Run the FindHiddenButton.jar to see the finished product. */
-
+ 
 public class _03_FindTheHiddenButton implements ActionListener{
     JFrame window;
     JPanel panel;
 
     // 1. create an array of JButtons. Don't initialize it yet.
-
+JButton[] buttonArray;
     // 2. create an integer variable called hiddenButton
-
+int hiddenButton;
     public static void main(String[] args) {
         new _03_FindTheHiddenButton().start();
     }
@@ -29,13 +29,41 @@ public class _03_FindTheHiddenButton implements ActionListener{
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // 3. Ask the user to enter a positive number and convert it to an int
-
+String numPos = JOptionPane.showInputDialog("Enter a positive number :D");
+int number = Integer.parseInt(numPos);
         // 4. Initialize the array of JButtons to be the size of the int
         //    created in step 3
-
+	buttonArray = new JButton[number];
         // 5. Make a for loop to iterate through the JButton array
+        for(int i=0; i<buttonArray.length; i++) {
+        	buttonArray[i] = new JButton();
+        	buttonArray[i].addActionListener(this);
+        	panel.add(buttonArray[i]);
+        	window.add(panel);
+        	window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        	window.setVisible(true);
         
+        	   Random rand = new Random();
+               int random = rand.nextInt(number);
+               hiddenButton = random;
+              if(i == random) {
+            	  buttonArray[i].setText("ME");
+              }
+              try {
+      			Thread.sleep(100);
+      		} catch (InterruptedException e) {
+      			// TODO Auto-generated catch block
+      			e.printStackTrace();
+      		}
+              buttonArray[i].setText(null);
+        }
+        JOptionPane.showMessageDialog(null, "hi user! find the hidden button! :))) good luck");
+        
+        //try-catch used to make sure thread.sleep(100) works and that it prints when it messes up
+        //aka a "safety net" for the program
+      
             // 6. initialize each JButton in the array
+     
         
             // 7. add the ActionListener to each JButton
         
@@ -63,7 +91,13 @@ public class _03_FindTheHiddenButton implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton buttonClicked = (JButton)e.getSource();
-
+if(buttonArray[hiddenButton] == buttonClicked) {
+	JOptionPane.showMessageDialog(null, "AAHHH HOW DID YOU KNOW???!?!?? good job u won!");	
+	//since hiddenButton = random/aka the chosen button, if buttonArray[the chosen button] ykykykyk
+}
+else {
+	JOptionPane.showMessageDialog(null, "nope, try again");
+}
         // 17. if the hiddenButton is clicked, tell the user that they win.
 
         // 18. else tell them to try again
