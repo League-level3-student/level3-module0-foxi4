@@ -106,7 +106,8 @@ for(int i=0; i<cells.length;i++) {
         	for(int k=0; k<cells[i].length;k++) {
         		cells[i][k].liveOrDie(livingNeighbors[i][k]);
         	}
-        }//lfsgeroauheoruhgaoeuhrgoauehroguahergouheaoughroahgoeurhgaouerhgoauehrgoauehrgouah
+        }//aoreghoaeurhgaourh why isnt my coddeee savviin gmy token doesnt woooorkk now i have to
+        //make a new oooonenneeee
         repaint();
     }
 
