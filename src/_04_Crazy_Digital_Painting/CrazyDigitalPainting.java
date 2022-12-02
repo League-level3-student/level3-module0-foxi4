@@ -21,7 +21,7 @@ Color[][] array = new Color[width][height];
         //    colors[i][j] = new Color(i % 256, (i * j) % 256, j % 256);
 for(int i=0;i<array.length;i++) {
 	for(int k=0;k<array[i].length;k++) {
-		array[i][k] = new Color(k % 256, (i * i) % 256, i % 256);
+		array[i][k] = new Color(k % 256, (k * i) % 256, i % 256);
 		//you can change i and k (stuff before modulo) and the color values. really really cool!
 		//changes patterns and colors and all that! :)
 		//color values are ALWAYS under 256
