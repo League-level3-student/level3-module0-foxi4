@@ -106,7 +106,7 @@ for(int i=0; i<cells.length;i++) {
         	for(int k=0; k<cells[i].length;k++) {
         		cells[i][k].liveOrDie(livingNeighbors[i][k]);
         	}
-        }
+        }//lfsgeroauheoruhgaoeuhrgoauehroguahergouheaoughroahgoeurhgaouerhgoauehrgoauehrgouah
         repaint();
     }
 
