@@ -35,8 +35,8 @@ cells = new Cell[cellsPerRow][cellsPerRow];
         // 3b. Iterate through the array and initialize each cell.
         //    Don't forget to consider the cell's dimensions when 
         //    passing in the location.
-for(int i=0; i<cells.length;i++) {
-	for(int k=0; k<cells[i].length;k++) {
+for(int i=0; i<cells.length;i++) { //rows
+	for(int k=0; k<cells[i].length;k++) { //columns
 		cells[i][k]= new Cell(k*cellSize,i*cellSize, cellSize);
 	}
 }
@@ -106,8 +106,7 @@ for(int i=0; i<cells.length;i++) {
         	for(int k=0; k<cells[i].length;k++) {
         		cells[i][k].liveOrDie(livingNeighbors[i][k]);
         	}
-        }//aoreghoaeurhgaourh why isnt my coddeee savviin gmy token doesnt woooorkk now i have to
-        //make a new oooonenneeee
+        }
         repaint();
     }
 
@@ -172,6 +171,13 @@ for(int i=0; i<cells.length;i++) {
         //    cellSize, meaning it's possible to click inside of a cell. You
         //    have to determine the cell that was clicked from the pixel
         //    location and toggle the 'isAlive' variable for that cell.
+    	for(int i=0; i<cells.length;i++) {
+        	for(int k=0; k<cells[i].length;k++) {
+        		if(e.getX() == k*cellSize && e.getY() == i*cellSize) {
+        			cells[i][k].isAlive = true;
+        		}
+        	}
+        }
 
         repaint();
     }
