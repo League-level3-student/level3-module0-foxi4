@@ -53,7 +53,76 @@ public class TheWrongWayCow {
     public static int[] findWrongWayCow(final char[][] field) {
         // Fill in the code to return the [col, row] coordinate position of the
         // head (letter 'c') of the wrong way cow!
+       
+        int UpWay = 0;
+        int DownWay = 0;
+        int LeftWay = 0;
+        int RightWay = 0;
+        int UpX = 0;
+        int UpY = 0;
+        int DownX = 0;
+        int DownY = 0;
+        int LeftX = 0;
+        int LeftY = 0;
+        int RightX = 0;
+        int RightY = 0;
+        for (int i = 0; i < field.length; i++) {
+        	for(int k = 0; k<field[i].length; k++) {
+        		 if(field[i][k] == 'c') {
+        			 if(k-1>=0 && field[i][k-1]=='o') {
+        				 
+        				 if(field[i][k-2]=='w') {
+        				 UpWay +=1;
+        				 UpX = i;
+        				 UpY = k;
+        				 } 
+        			 }
+        			 if(k+1<field.length &&field[i][k+1]=='o') {
+        				 if(field[i][k+2]=='w') {
+        					 DownWay +=1;
+        					 DownX=i;
+        					 DownY=k;
+        				 }
+        			 }
+                	if(i-1>=0 && field[i-1][k]=='o') {
+                		if(field[i-2][k]=='w') {
+                			RightWay +=1;
+                			RightX =i;
+                			RightY =k;
+                		}
+                	}
+                	 if(i+1<field.length && field[i+1][k] == 'o') {
+                		 
+                		 if(field[i+2][k]=='w') {
+                			 LeftWay +=1;	
+                			 LeftX=i;
+                			 LeftY=k;
+                		 }
+                	 }
+                	 
+        		 }
+         }
+        }
+        if(UpWay == 1) {
+        	return new int[] {UpX,UpY};
+        	//how to return a new array with certain variables
+        }
+        if(DownWay == 1) {
+        	return new int[] {DownX,DownY};
+
+        }
+        if(LeftWay == 1) {
+        	return new int[] {LeftX,LeftY};
+
+}
+        if(RightWay == 1) {
+        	return new int[] {RightX,RightY};
+
+}
+       
         
         return null;
+        //needs return null (to have some type of return), but in theory it will not get to return null
+        //cuz there are returns before
     }
 }
